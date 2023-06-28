@@ -3,7 +3,9 @@
 ## I. Algorithms
 1. Gauss elimination
 2. Cholesky factorization:
+
    Square method and optimized square method.
+
    Pay attention to the running time difference between the two method !!!
 4. Conjugate gradient
 5. GMRES
