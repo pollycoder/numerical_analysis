@@ -1,44 +1,34 @@
-# 数值分析——线性方程组解法
+# Linear Equation Solution
 
-## 问题描述
+## Algorithms
+1. Gauss elimination
+2. Cholesky factorization:
+   Square method and optimized square method.
+   Pay attention to the running time difference between the two method !!!
+4. Conjugate gradient
+5. GMRES
+6. Regularization method (Tikhonov)
 
-设$H_n=[h_{ij}] \in \mathbb{R}^{n \times n}$是Hilbert矩阵，即
-$$
-h_{ij}=\frac{1}{i+j-1}
-$$
-对n=10,11,...,15恒成立。
-(a) 取$x=
-        \begin{pmatrix}
-         1  \\
-         ...\\
-         1
-    \end{pmatrix}\in \mathbb{R}^{n}$，令$b_n=H_nx$.再用Gauss消去法和Cholesky分解方法来求解$H_ny=b_n$，看看误差有多大.
-(b) 使用正则化方法改善(a)中的结果.
-(c) 用共轭梯度法和GMRES方法求解$H_ny=b_n$，并与前面的直接方法作比较.
+## Usage
+```matlab
+X=ALGORITHM(A,b);
+```
+`A` is an n$\cross$n matrix, `b` is an n-dimension vector, `X` is the solution vector.
 
-## 文件结构
+## Experiments
+You may change the dimension n as you like.
 
-1. 主程序：hilbert.m
+### The function of regularization
+Here we use Hilbert matrix (ill-conditioned)
+Compare the condition before and after the Hilbert matrix is regularized.
 
-求解+绘图（可绘出MSE随矩阵阶数（病态程度）的变化图）
+### The Difference between direct method and iterating method
+Here we use Hilbert matrix again, and take the 2-norm of the residual as our ERROR.
+You will see direct method is not suitable for ill-conditioned matrix, but iterating method can still work.
 
-2. 求解程序
-
-高斯消元法：gauss.m
-
-Cholesky分解法：cholesky.m
-
-吉洪诺夫正则化：tikhonov.m, tikhonov_gauss.m, tikhonov_chol.m
-
-共轭梯度法：cg.m
-
-广义最小残差法：GMRES.m
-
-3. 报告(.pdf)
-
-4. 实验结果(result.xlsx)
-
-
+### WHen to use Thomas method ?
+Here we use two matrixes, one is regualarized Hilbert matrix (not ill-conditioned now), the other is a triple-diagonal matrix.
+You will see only the second one can work out the precise solution, because Thomas method is only suitable for triple-diagonal matrix.
 
 ---
 
