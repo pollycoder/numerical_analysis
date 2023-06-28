@@ -1,6 +1,6 @@
 # Linear Equation Solution
 
-## Algorithms
+## I. Algorithms
 1. Gauss elimination
 2. Cholesky factorization:
    Square method and optimized square method.
@@ -9,24 +9,24 @@
 5. GMRES
 6. Regularization method (Tikhonov)
 
-## Usage
+## II. Usage
 ```matlab
 X=ALGORITHM(A,b);
 ```
-`A` is an n$\cross$n matrix, `b` is an n-dimension vector, `X` is the solution vector.
+`A` is an nxn matrix, `b` is an n-dimension vector, `X` is the solution vector.
 
-## Experiments
+## III. Experiments
 You may change the dimension n as you like.
 
-### The function of regularization
+### 1. The function of regularization
 Here we use Hilbert matrix (ill-conditioned)
 Compare the condition before and after the Hilbert matrix is regularized.
 
-### The Difference between direct method and iterating method
+### 2. The Difference between direct method and iterating method
 Here we use Hilbert matrix again, and take the 2-norm of the residual as our ERROR.
 You will see direct method is not suitable for ill-conditioned matrix, but iterating method can still work.
 
-### WHen to use Thomas method ?
+### 3. WHen to use Thomas method ?
 Here we use two matrixes, one is regualarized Hilbert matrix (not ill-conditioned now), the other is a triple-diagonal matrix.
 You will see only the second one can work out the precise solution, because Thomas method is only suitable for triple-diagonal matrix.
 
