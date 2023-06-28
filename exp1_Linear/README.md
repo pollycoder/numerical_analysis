@@ -10,6 +10,9 @@
 4. Conjugate gradient
 5. GMRES
 6. Regularization method (Tikhonov)
+7. Jacobi iteration
+8. Gauss-Seidel iteration
+9. Successive Over-Relaxation iteration
 
 ## II. Usage
 ```matlab
@@ -30,10 +33,13 @@ Here we use Hilbert matrix again, and take the 2-norm of the residual as our ERR
 
 You will see direct method is not suitable for ill-conditioned matrix, but iterating method can still work.
 
-### 3. WHen to use Thomas method ?
+### 3. When to use Thomas method ?
 Here we use two matrixes, one is regualarized Hilbert matrix (not ill-conditioned now), the other is a triple-diagonal matrix.
 
 You will see only the second one can work out the precise solution, because Thomas method is only suitable for triple-diagonal matrix.
+
+### 4. Other tips
+You may try different matrix for SOR method, and you will find out that only consistency ordered matrix with all its eigenvalue real can reach a converged result.
 
 ---
 
