@@ -2,9 +2,8 @@
 ## The Very Beginning
 The repositiry is for numerical analysis learning, containing the source code for all the algorithms would be learned in this course. To make it easier to use, here's the construction of the files:
 1. ${ALGORITHM_NAME}.m: the implement for each alogorithm. They would be sealed into a function. For more information, go into each directory and read the README file within.
-2. example.m: examples for one experiment.
-3. experiment.m: a sealed function to do experiment more conveniently. If you don't want to spend time to design experiments by yourself, this might be a good choice.
-You can also create your own file to do experiments. Both sealed and unsealed examples can be found in example.m.
+2. example.mlx: Live script for experiments. Details will be introduced in the code comments.
+You can also create your own file to do experiments. 
 
 ## Experiment List
 
