@@ -36,9 +36,6 @@ fprintf("\n");
 fprintf("Newton iteration:\n");
 [X4,step7,x7_arr]=newton(@cube,X4);
 
-
-
-
 % Plot
 subplot(2,1,1);
 plot(0:step1-1,x1_arr,"-x",'LineWidth',1);hold on;

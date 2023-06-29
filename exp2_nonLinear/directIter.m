@@ -22,7 +22,6 @@ while e>tol && steps<max_iter
     sol=feval(obj_fun,x0);
     e=abs(sol);
     x_array(end+1)=x0;
-    fprintf("%d\n",x0);
     if e<tol
         ifconv=true;
         break;
@@ -32,7 +31,7 @@ time=toc(time);
 if ifconv
     fprintf("Converged! Iteration: %d\n",steps);
 else
-    fprintf("Not converged !\n");
+    fprintf("Not converged ! Iteration: %d\n",steps);
 end
 x=x0;
 end

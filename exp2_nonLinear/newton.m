@@ -21,7 +21,6 @@ while e>tol && steps<max_iter
     x0=double(x0-subs(y,x,x0)./subs(diff(y),x,x0));
     sol=feval(obj_fun,x0);
     e=abs(sol);
-    fprintf("%d\n",x0);
     if e<tol
         ifconv=true;
         break;

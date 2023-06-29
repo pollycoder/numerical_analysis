@@ -21,7 +21,6 @@ while e>tol && steps<max_iter
     sol=feval(obj_fun,x0);
     e=abs(sol);
     x_array(end+1)=x0;
-    fprintf("%d\n",x0);
     if e<tol
         ifconv=true;
         break;
