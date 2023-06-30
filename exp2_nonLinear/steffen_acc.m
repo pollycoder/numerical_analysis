@@ -3,7 +3,6 @@
 % Use steffensen to generate a new iteration function
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [x,steps,x_array,e,time]=steffen_acc(obj_fun,iter_fun,x0,tol,max_iter)
-time=tic;
 ifconv=false;
 x_array=[];
 if nargin<5
@@ -26,7 +25,6 @@ while e>tol && steps<max_iter
         break;
     end
 end
-time=toc(time);
 if ifconv
     fprintf("Converged! Iteration: %d\n",steps);
 else

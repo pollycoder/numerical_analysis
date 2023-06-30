@@ -1,41 +1,108 @@
-# 数值分析——非线性方程组解法
+# Non-Linear Equation Solution
 
-## 问题描述
+## I. Algorithms
 
-试用以下方法求方程:
-$$x^3+2x^2+10x-20=0$$
+1. Direct iteration
+2. Steffensen acceleration
+3. Newton iteration
 
-在$x_0=1$附近的根.(准确解为$x^*=1.368808107...$)希望精度达到$10^{-7}$(要注意避免死循环):
+- Newton method
+- Secant method
+- Quadratic method
 
-(1) $x_{k+1}=\frac{20-2x_k^2-x_k^3}{10}$;
+## II. Usage
 
-(2) $x_{k+1}=\sqrt[3]{20-10x_k-2x_k^2}$;
+1. Direct method
 
-(3) 方法(1)的Steffensen加速方法;
+```matlab
+[x,steps,x_array]=directIter(obj_fun,iter_fun,x0,tol,max_iter)
+```
 
-(4) 方法(2)的Steffensen加速方法;
+**Output**: `x` is the final solution, `steps` is the steps number it takes to iterate, `x_array` displays the process of iteration.
 
-(5) Newton法;
+**Input**: `obj_fun` is the function to be solved, `iter_fun` is the function for iteration, `x0` is the initial value, `tol` is the tolerance of the algorithm, `max_iter` is the maximum iteration steps. 
 
-## 文件结构
+2. Steffensen acceleration
 
-1. 主程序：main.m
+```matlab
+[x,steps,x_array]=steffen_acc(obj_fun,iter_fun,x0,tol,max_iter)
+```
 
-求解+绘图（可绘出震荡现象的图）
+**Output**: `x` is the final solution, `steps` is the steps number it takes to iterate, `x_array` displays the process of iteration.
 
-2. 求解程序
+**Input**: `obj_fun` is the function to be solved, `iter_fun` is the function for iteration, `x0` is the initial value, `tol` is the tolerance of the algorithm, `max_iter` is the maximum iteration steps. 
 
-直接迭代法：directIter.m
+3. Newton method
 
-Steffensen加速法：steffen_acc.m
+```matlab
+[x,steps]=newton(obj_fun,x0,tol,max_iter)
+```
 
-Newton迭代法：newton.m
+**Output**: `x` is the final solution, `steps` is the steps number it takes to iterate.
 
-3. 报告(.pdf)
+**Input**: `obj_fun` is the function to be solved,  `x0` is the initial value, `tol` is the tolerance of the algorithm, `max_iter` is the maximum iteration steps. 
 
-4. 实验结果(result.xlsx)
+4. Secant method
 
+```matlab
+[x,steps]=secant(obj_fun,x0,x1,tol,max_iter)
+```
 
+**Output**: `x` is the final solution, `steps` is the steps number it takes to iterate.
+
+**Input**: `obj_fun` is the function to be solved,  `x0` and `x1` are initial values, `tol` is the tolerance of the algorithm, `max_iter` is the maximum iteration steps. 
+
+5. Quadratic method
+
+```matlab
+[x,steps]=secant(obj_fun,x0,x1,x2,tol,max_iter)
+```
+
+**Output**: `x` is the final solution, `steps` is the steps number it takes to iterate.
+
+**Input**: `obj_fun` is the function to be solved,  `x0` , `x1` and `x2` are initial values, `tol` is the tolerance of the algorithm, `max_iter` is the maximum iteration steps. 
+
+## II. Experiments
+
+You may change the original function (here the func name is @cube: $y=x^3+x^2+10x-20$)
+
+### 1. Direct method
+
+Pay attention to the astringency of each iterating function. There are 3 functions:
+
+(1) $\varphi (x)=\frac{20-2x^2-x^3}{10}$: Not converged
+
+(2) $\varphi (x)=20-10x^2-x^3$: Not converged
+
+**(3) $\varphi (x)=\frac{20}{x^2+2x+10}$: Converged**
+
+Then check the iteration graphs which show the process of iteration. You may find that there are vibrations within the first two methods, which caused the misconvergence.
+
+### 2. Steffensen method
+
+Now we add Steffensen acceleration upon each iterating function. Do they converge now ? If so, how many steps do they take ? Compare their convergence and the steps to those without acceleration.
+
+### 3. Newton iteration
+
+Here we have three Newton methods: 
+
+(1) Classical Newton method: **differential coefficient**, use tangent line.
+
+(2) Secant method: use serif.
+
+(3) Quadratic method: use parabola.
+
+Compare the convergence and sort the converging speed. Which one converges the fastest ?
+
+### 4. Bonus experiment: Why there are vibrations in experiment 1?
+
+We iterate the first two iterating functions twice:$\varphi (x)\to \varphi (\varphi (x))$.
+
+First we use these two function to solve the object function again, now they converged but finally reach the wrong answer. Where did they become converged ? 
+
+Now check the graph of the two iterated functions, what are their fixed points ? 
+
+Check the intersection points ( the fixed points) between the iterated function and $y=x$. Find the intersection points and try to explain the vibration combined with the result we get from experiment 1.
 
 ---
 

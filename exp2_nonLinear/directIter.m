@@ -3,8 +3,7 @@
 % Caution: Cannot converge
 % Vibrate or close to inf, depending on the initial value
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [x,steps,x_array,e,time]=directIter(obj_fun,iter_fun,x0,tol,max_iter)
-time=tic;
+function [x,steps,x_array]=directIter(obj_fun,iter_fun,x0,tol,max_iter)
 ifconv=false;
 x_array=[];
 if nargin<5
@@ -27,7 +26,6 @@ while e>tol && steps<max_iter
         break;
     end
 end
-time=toc(time);
 if ifconv
     fprintf("Converged! Iteration: %d\n",steps);
 else

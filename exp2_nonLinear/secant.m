@@ -1,23 +1,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Newton iteration
+%% Secant Method
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-function [x,steps]=newton(obj_fun,x0,tol,max_iter)
+function [x,steps]=secant(obj_fun,x0,x1,tol,max_iter)
 ifconv=false;
-if nargin<4
+if nargin<5
     max_iter=100;
 end
-if nargin<3
-    tol=1E-7;
+if nargin<4
+    tol=1E-10;
 end
 steps=0;
 sol=feval(obj_fun,x0);
 e=abs(sol);
-syms x
-y=obj_fun(x);
 while e>tol && steps<max_iter
     steps=steps+1;
-    x0=double(x0-subs(y,x,x0)./subs(diff(y),x,x0));
-    sol=feval(obj_fun,x0);
+    x2=x1-obj_fun(x1)*(x1-x0)/(obj_fun(x1)-obj_fun(x0));
+    x0 = x1;
+    x1 = x2;
+    sol=feval(obj_fun,x1);
     e=abs(sol);
     if e<tol
         ifconv=true;
@@ -29,5 +29,5 @@ if ifconv
 else
     fprintf("Not converged !\n");
 end
-x=x0;
+x=x1;
 end
