@@ -1,7 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
 % QR Factorization method
 %%%%%%%%%%%%%%%%%%%%%%%%%
-function [lambda,times]=eig_qr(A,n,e)
+function [lambda,times]=eig_qr(A,e)
+[~,n]=size(A);
 times=0;
 while true
     flag=true;

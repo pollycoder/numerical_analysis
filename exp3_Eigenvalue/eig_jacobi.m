@@ -1,7 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%
 % Jacobi passing method
 %%%%%%%%%%%%%%%%%%%%%%%%
-function [lambda,times] = eig_jacobi(A,e,n)
+function [lambda,times] = eig_jacobi(A,e)
+[~,n]=size(A);
 Frob=sqrt(norm(A,"fro"));
 delta=sqrt(Frob)/n;
 times=0;
