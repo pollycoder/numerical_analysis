@@ -55,7 +55,7 @@
 5. Quadratic method
 
 ```matlab
-[x,steps]=secant(obj_fun,x0,x1,x2,tol,max_iter)
+[x,steps]=quadratic(obj_fun,x0,x1,x2,tol,max_iter)
 ```
 
 **Output**: `x` is the final solution, `steps` is the steps number it takes to iterate.
