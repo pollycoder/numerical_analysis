@@ -6,42 +6,21 @@ The repositiry is for numerical analysis learning, containing the source code fo
 You can also create your own file to do experiments. 
 
 ## Experiment List
+Detailed information is provided in the README under each experimental directory. Read them carefully to help you think when doing the experiments.
 
 ### Experiment 1 Linear Equations Solving
-1. Gauss elimination
-2. Cholesky Factorization
-3. CG and GMRES
-
-Compare the error
 
 ### Experiment 2 Non-linear Equations Solving
-1. Direct function construction
-2. Accelerations --- Steffensen
-3. Newton
-
-Requirements: Error < 1e-7
 
 ### Experiment 3 Eigenvalue Calculation
-1. Jacobi method
-2. QR method
 
 ### Experiment 4 Interpolation
-1. Lagrange interpolation
-2. Piecewise linear interpolation
-3. Cubic spline interpolation
 
 ### Experiment 5 Function Approximation
-1. Best square approximation
-2. Tchebychev series truncation
-3. Lagrange remainder minimization
 
 ### Experiment 6 Numerical Integration
-1. 5-point-Gauss-Legendre
-2. Romberg, Error<1e-7
 
 ### Experiment 7 ODE Numerical Solution
-1. Explicit Runge-Kutta in 4 orders (ode45 without 5-order correction)
-2. Implicit Runge-Kutta in 4 orders
 
 ## Acknowledgement
 Thanks to Professor Zhongyi Huang from Department of Mathematical Sciences, Tsinghua University, our lecturer for Engineering and Scientific Computing Course. His course with large capacity provided us with many practical algorithms and deeper understanding about its usage, and the
