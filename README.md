@@ -8,19 +8,19 @@ You can also create your own file to do experiments.
 ## Experiment List
 Detailed information is provided in the README under each experimental directory. Read them carefully to help you think when doing the experiments.
 
-### Experiment 1 Linear Equations Solving
+Experiment 1 Linear Equations Solving
 
-### Experiment 2 Non-linear Equations Solving
+Experiment 2 Non-linear Equations Solving
 
-### Experiment 3 Eigenvalue Calculation
+Experiment 3 Eigenvalue Calculation
 
-### Experiment 4 Interpolation
+Experiment 4 Interpolation
 
-### Experiment 5 Function Approximation
+Experiment 5 Function Approximation
 
-### Experiment 6 Numerical Integration
+Experiment 6 Numerical Integration
 
-### Experiment 7 ODE Numerical Solution
+Experiment 7 ODE Numerical Solution
 
 ## Acknowledgement
 Thanks to Professor Zhongyi Huang from Department of Mathematical Sciences, Tsinghua University, our lecturer for Engineering and Scientific Computing Course. His course with large capacity provided us with many practical algorithms and deeper understanding about its usage, and the
