@@ -1,20 +1,77 @@
-# 数值分析——插值法
+# Interpolation
 
-## 问题描述
+## I. Algorithms
 
-设$\frac{1}{1+25x^2}, x\in [-1,1]$,
-取$x_j=-1+\frac{2j}{n},j=0,1,...,n$.取适当的$n$（比如$n=10,20,...$等），试求出$n$次Lagrange插值多项式$L_n(x)$、分段线性插值函数$I_1^h(x)$和三次样条插值函数$S_3^h(x)$（采用自然边界条件），画出它们的图像，并对结果做一个比较说明。
+1. Polynominal interpolation: 
 
-## 文件结构
+   Lagrange interpolation and Newton interpolation
 
-1. main.m：主程序。该程序会生成题目给定的函数，并分别调用三个插值方法的.m文件，指定采样点数n，基于这些采样点对函数进行插值。最终绘出三个插值效果的示意图。
-1. lagrange_interp.m：使用Lagrange插值法进行插值的程序。该程序接受一个$x$值和指定的采样点序列$(x_i,y_i)$，利用Lagrange插值公式进行插值，最终返回$x$对应的函数值$y$。
-1. piece_lin_interp.m：使用分段线性插值法进行插值的程序。该程序接受一个$x$值和指定的采样点序列$(x_i,y_i)$，利用分段线性插值公式进行插值，最终返回$x$对应的函数值$y$
-1. spline_interp.m：使用三次样条插值法进行插值的程序。该程序接受一个$x$值和指定的采样点序列$(x_i,y_i)$，利用三次样条插值公式进行插值，最终返回$x$对应的函数值$y$。
+   There should be no difference between the two methods.
 
-3. 报告(.pdf)
+1. Polynominal interpolation through Tchebychev nodes
 
-4. 实验结果(result.xlsx)
+2. Hermite interpolation
+
+3. Piecewise interpolation: spline interpolation (cubic and B-spline)
+
+4. ENO interpolation
+
+## II. Usage
+
+1. Polynominal interpolation
+
+```matlab
+y=lagrange_interp(x,x0,y0);
+y=newton_interp(x,x0,y0);
+```
+
+**Output: ** `y` is the result of each interpolation
+
+**Input:** `x` is the points to be interpolated, `(x0,y0)` is the points for interpolation.
+
+2. Hermite interpolation
+
+```matlab
+y = hermite_interp(x0, y0, dy0, x);
+```
+
+**Output: ** `y` is the result of each interpolation
+
+**Input:** `x` is the points to be interpolated, `(x0,y0)` is the points for interpolation, `dy0` is the derivative value for each `x0`.
+
+3. Cubic spline
+
+```matlab
+y=spline_interp(x,x0,y0);
+```
+
+**Output: ** `y` is the result of each interpolation.
+
+**Input:** `x` is the points to be interpolated, `(x0,y0)` is the points for interpolation.
+
+## III. Experiments
+
+You may try different functions for interpolation.
+
+### 1. The comparison between Lagrange interpolation and Newton interpolation
+
+This experiment proved the uniqueness of polynominal interpolation. You will find out that the curves are totally the same, which means that though the formulas of the two interpolation methods are different, the final polynominals are the same.
+
+However, when we try to interpolate some functions, Runge phenomenon will appear. The rest of the methods can solve the problem.
+
+### 2. Cubic spline interpolation
+
+Spline interpolation can make the interpolation curve smoother, and as well reduces the residual. Cubic spline interpolation is the most common method.
+
+### 3. Polynominal interpolation through Tchebychev nodes
+
+In Lagrange and Newton interpolation we used equidistant nodes for interpolation ,which will cause Runge phenomenon when interpolating some functions. If we use Tchebychev nodes, Runge phenomenon will be weakened.
+
+### 4. Hermite interpolation
+
+## IV. Apology
+
+Sorry that there are some bugs in the code of B-spline and ENO interpolation, therefore the experiment will come out later.
 
 
 

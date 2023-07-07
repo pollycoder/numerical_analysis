@@ -15,9 +15,9 @@ x_base=-bound:2*bound/(1000*n):bound;
 x_base=x_base';
 y_base=zeros(size(x_base));
 for i=1:length(y_base)
-    %y_base(i)=1/(1+25*x_base(i)^2);
+    y_base(i)=1/(1+25*x_base(i)^2);
     %y_base(i)=sin(x_base(i));
-    y_base(i)=x_base(i)^3+x_base(i);
+    %y_base(i)=x_base(i)^3+x_base(i);
 end
 
 
@@ -25,9 +25,9 @@ end
 x=-bound:2*bound/n:bound;
 y=zeros(size(x));
 for i=1:length(y)
-    %y(i)=1/(1+25*x(i)^2);
+    y(i)=1/(1+25*x(i)^2);
     %y(i)=sin(x(i));
-    y(i)=x(i)^3+x(i);
+    %y(i)=x(i)^3+x(i);
 end
 
 
@@ -36,7 +36,7 @@ yl=y_base;
 err_l=y_base;
 rel_err_l=err_l;
 for i=1:length(yl)
-    yl(i)=lagrange_interp(x_base(i),x,y);
+    yl(i)=newton_interp(x_base(i),x,y);
     err_l(i)=yl(i)-y_base(i);
     rel_err_l(i)=err_l(i)/y_base(i);
 end
