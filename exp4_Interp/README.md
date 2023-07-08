@@ -32,7 +32,7 @@ y=newton_interp(x,x0,y0);
 2. Hermite interpolation
 
 ```matlab
-y = hermite_interp(x0, y0, dy0, x);
+y=hermite_interp(x0, y0, dy0, x);
 ```
 
 **Output: ** `y` is the result of each interpolation
