@@ -25,7 +25,7 @@ y=lagrange_interp(x,x0,y0);
 y=newton_interp(x,x0,y0);
 ```
 
-**Output: ** `y` is the result of each interpolation
+**Output:** `y` is the result of each interpolation
 
 **Input:** `x` is the points to be interpolated, `(x0,y0)` is the points for interpolation.
 
