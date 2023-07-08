@@ -35,7 +35,7 @@ y=newton_interp(x,x0,y0);
 y=hermite_interp(x0, y0, dy0, x);
 ```
 
-**Output: ** `y` is the result of each interpolation
+**Output:** `y` is the result of each interpolation
 
 **Input:** `x` is the points to be interpolated, `(x0,y0)` is the points for interpolation, `dy0` is the derivative value for each `x0`.
 
