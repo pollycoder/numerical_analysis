@@ -45,7 +45,7 @@ y=hermite_interp(x0, y0, dy0, x);
 y=spline_interp(x,x0,y0);
 ```
 
-**Output: ** `y` is the result of each interpolation.
+**Output:** `y` is the result of each interpolation.
 
 **Input:** `x` is the points to be interpolated, `(x0,y0)` is the points for interpolation.
 
