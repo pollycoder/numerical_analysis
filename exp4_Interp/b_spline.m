@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%
-% B-spline interpolation
+%% B-spline interpolation
 %%%%%%%%%%%%%%%%%%%%%%%%
 function [interp_values] = b_spline(x, y, interp_points, k)
 % x: 已知点的 x 坐标
