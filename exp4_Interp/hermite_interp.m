@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
-% Hermite interpolation
+%% Hermite interpolation
 %%%%%%%%%%%%%%%%%%%%%%%%%
 function [interp_values] = hermite_interp(x, y, dy, interp_points)
 m = length(interp_points);
