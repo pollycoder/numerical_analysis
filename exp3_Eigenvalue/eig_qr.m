@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
-% QR Factorization method
+%% QR Factorization method
 %%%%%%%%%%%%%%%%%%%%%%%%%
 function [lambda,times]=eig_qr(A,e)
 [~,n]=size(A);
