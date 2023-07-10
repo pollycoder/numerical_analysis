@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%
-% Jacobi passing method
+%% Jacobi passing method
 %%%%%%%%%%%%%%%%%%%%%%%%
 function [lambda,times] = eig_jacobi(A,e)
 [~,n]=size(A);
