@@ -1,6 +1,6 @@
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ENO interpolation
+%%%%%%%%%%%%%%%%%%%%%%%%%
 function result = eno_interp(x, y, xi)
     n = length(x);
     k = min(2, n-1);  % 控制插值阶数，这里选择二阶插值
