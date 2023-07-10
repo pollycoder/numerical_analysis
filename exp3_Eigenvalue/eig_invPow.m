@@ -1,3 +1,6 @@
+%%%%%%%%%%%%%%%%%%%%%%
+%% Inverse power method
+%%%%%%%%%%%%%%%%%%%%%%
 function [lambda,times]=eig_invPow(A,lambda0, tol)
 [n,~]=size(A);
 v0=ones([n,1]);
