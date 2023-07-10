@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%
-% Pade approximation
+%% Pade approximation
 %%%%%%%%%%%%%%%%%%%%%
 function [num_coeffs, den_coeffs] = pade_approx(f, m, n)
 % Coefficient matrix 
