@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Cholesky factorization
+%% Cholesky factorization
 %   ---Square Method
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [x]=cholesky_sq(A,b)
