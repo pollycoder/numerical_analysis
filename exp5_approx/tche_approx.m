@@ -1,8 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Tchebychev series truncation
-%  Parameters:
-%   func: object function
-%   n: order
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function coefficients = tche_approx(func,n)
 coefficients = zeros(n+1, 1);

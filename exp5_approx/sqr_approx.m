@@ -1,12 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Best square approximation
-%  Parameters:
-%   n: order
-%   func: object function
-%   int_min,int_max: range for integration
-%   w_func: weight function
-%  Output:
-%   a: coefficient
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function a=sqr_approx(n,func)
 % Get the Legendre polynomial
