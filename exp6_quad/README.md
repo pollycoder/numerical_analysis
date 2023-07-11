@@ -1,21 +1,68 @@
-# 数值积分与数值微分
+# Numerical Integration
 
-## 问题描述
+## I. Alogorithms
 
-试用不同数值积分方法计算$I(f)=\int_1^3 f(x)dx$的近似值，其中$f(x)=\frac{1}{x^2}sin\frac{2\pi}{x}$.\\
-注：$I(f)=-0.238732414637843...$.
+1. Newton-Cotes
+2. Gauss-Legendre
+3. Romberg
+4. Gauss-Lobatto
+5. Filon
 
-1. 把[1,3]分成4个子区间，用五点Gauss-Legendre求积公式的复合求积公式计算；
-2. 用Romberg求积算法计算积分，取$\varepsilon=10^{-7}$，并与第一种办法比较。
+## II. Usage
 
-## 文件结构
+The output of all the integeral formula is the integeration value.
 
-1. main.m：主程序。该程序会生成题目给定的函数和积分区间，并分别调用两个求积公式计算该积分。在本程序中我们在题目要求的基础上增加了复合公式的网格密度和Romberg求积算法的精度，进行多次试验，最终会给出题目要求的两个积分结果，并且绘出两个积分公式的误差随着网格密度和外推次数增加的变化图。
-2. gaussLegendre5\underline{\hspace{0.5em}}comp.m：使用Gauss-Legendre五点公式进行积分的程序。该程序接受被积函数句柄，积分上限和下限，以及复合公式划分的区间数，最终返回积分值。
-3. romberg.m：使用Romberg求积算法进行积分的程序。该程序接受被积函数句柄，积分上限和下限，指定最高外推次数和精度，最终返回积分值。
+1. Newton-Cotes
 
-4. 报告（.pdf）
-5. 实验结果（result.xlsx）
+```matlab
+result=newton_cotes_comp(f,a,b,m,n);
+```
+
+**Input:**`f` is the function to be integrated, `(a,b)` is the integral section, `m` is the order, `n` is the number of sub-sections for integeration.
+
+2. Gauss-Legendre (5 points formula)
+
+```matlab
+result=gaussLegendre5_comp(f,a,b,n);
+```
+
+**Input:**`f` is the function to be integrated, `(a,b)` is the integral section,  `n` is the number of sub-sections for integeration.
+
+3. Romberg
+
+```
+result=romberg(f,a,b,n,e)
+```
+
+**Input:**`f` is the function to be integrated, `(a,b)` is the integral section,  `n` is the timesr of Richardson's extrapolation, `e` is the error.
+
+4. Gauss-Lobatto
+
+```matlab
+result=gauss_lobatto(f,a,b,n);
+```
+
+**Input:**`f` is the function to be integrated, `(a,b)` is the integral section,  `n` is the order.
+
+5. Filon
+
+```matlab
+result=filon(f,a,b,N,n);
+```
+
+**Input:**`f` is the function to be integrated, `(a,b)` is the integral section,  `n` is the angular velocity of Fourier integeration, `N` is the number of sub-sections.
+
+## III. Experiments
+
+### 1. Normal integeration
+
+Compare the error among Newton-Cotes (you can change the number of sub-sections and order), Gauss-Legendre, Romberg and Gauss-Lobatto method. You may find that Romberg is more flexible about the tolerance.
+
+### 2. Integeration for viberating function
+
+Take Fourier integeration as an example. Compare the result from Gauss-Lobatto and Filon method. You may find that Gauss-Lobatto method is both suitable for the two kinds of integerations, but it suits viberating integeration better. However, if the tolerance should be taken into account, then Filon method is better.
+
+
 
 
 
