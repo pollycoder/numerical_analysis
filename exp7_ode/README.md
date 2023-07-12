@@ -1,27 +1,53 @@
-# ODE数值解
+# ODE Numerical Solution
 
-## 问题描述
+## I. Algorithms
 
-考虑以下常微分方程组：
+1. Euler method
+
+- Explicit
+- Implicit
+- Improved (prediction-correction)
+
+2. Runge-Kutta method
+
+- Explicit
+- Implicit
+
+3. Linear multi-step method (Milne method)
+
+## II. Usage
+
+The input and output can be referred from the documentation of `@ode45`.
+
+```matlab
+[t,y_euler_exp]=ode_euler_exp(@odefcn,tspan,y0,N);				% Explicit Euler
+[t,y_euler_exp]=ode_euler_imp(@odefcn,tspan,y0,N);				% Implicit Euler
+[t,y_euler_improve]=ode_euler_improve(@odefcn,tspan,y0,N);% Improved Euler
+
+[t,y_rk4_exp]=ode_expRK4(@odefcn,tspan,y0);								% Explicit Runge-Kutta
+[t,y_rk4_imp]=ode_impRK4(@odefcn,tspan,y0);								% Implicit Runge-Kutta
+
+[t,y_milne]=milne(@odefcn,tspan,y0);											% Milne method
+```
+
+## III. Experiments
+
+The ODE we chose here is actually a harmonic oscillator:
 $$
-\begin{aligned}
-\frac{dp}{dt}&=-q,t\in[0,T]\\
-\frac{dq}{dt}&=p,t\in[0,T]\\
-p(0)&=0,\\
-q(0)&=1.
-\end{aligned}
+\begin{align}
+\dot{p}&=-q\\
+\dot{q}&=p
+\end{align}
 $$
+With the initial condition $p_0=0, q_0=1$.
+
+The physical meaning of $p$ and $q$ is velocity and displacement of the oscillator. So here we introduce another physical quantity: the energy of the system.
+
+Pay attention to the two plots for each method. One shows the transformation of $p$ and $q$, the other shows the transformation of the energy. Compare the stability of different method. Is the conclusion the same with the one mentioned in class ?
+
+P.s. The energy should conserved analytically, but actually it's not because of the error in numerical method. So pay attention to the error of energy !
 
 
-试分别用一般显式的Runge-Kutta方法（如经典的四阶R-K方法）和辛算法（如四阶的隐式R-K算法）计算（比如到T=100），并比较结果。尤其看看其守恒量$\frac{p^2+q^2}{2}$的演化情况。
-
-## 文件结构
-
-1. main.m：主程序。会生成题目指定的初值条件和求解区间，它将会调用4次ode_exp.m，分别使用ode_expRK4.m、ode_impRK4.m以及MATLAB提供的两个经典ODE求解器ode45、ode15s对原常微分方程进行求解，并与该方程的解析解结果进行比较，最终会分别绘出p,q随t变化和守恒量$\frac{p^2+q^2}{2}$随时间t变化的曲线图。
-2. ode_expRK4.m：使用显式四阶R-K方法进行ODE求解的程序。该程序的参数和返回值与MATLAB提供的ODE求解器格式完全一致。
-3. ode_impRK4.m：使用隐式四阶R-K方法（辛算法）进行ODE求解的程序。该程序的参数和返回值与MATLAB提供的ODE求解器格式完全一致。
-4. ode_exp.m：为了让代码更加简洁而将实验封装成了一个函数。该函数接受求解器句柄、求解区间和初值条件，同时接受求解器名称，分别完成ODE求解、守恒量计算和绘图的任务；为了防止bug加了一个返回值，实际上它的返回值为空。
-5. 报告（.pdf）
 
 ---
 

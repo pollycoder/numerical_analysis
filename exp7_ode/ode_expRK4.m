@@ -22,9 +22,7 @@ while t < tfinal
     k4 = h * feval(odefun, t + h, y + k3);
 
     ynew = y + (k1 + 2*k2 + 2*k3 + k4)/6;
-    tnew = t + h;
-
-    
+    tnew = t + h;    
     t = tnew;
     y = ynew;
     
