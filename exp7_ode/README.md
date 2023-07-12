@@ -34,7 +34,7 @@ The input and output can be referred from the documentation of `@ode45`.
 
 The ODE we chose here is actually a harmonic oscillator:
 $$
-\dot{p}&=-q , \dot{q}&=p
+\dot{p}=-q , \dot{q}=p
 $$
 With the initial condition $p_0=0, q_0=1$.
 
