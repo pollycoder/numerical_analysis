@@ -25,3 +25,5 @@ Experiment 7 ODE Numerical Solution
 ## Acknowledgement
 Thanks to Professor Zhongyi Huang from Department of Mathematical Sciences, Tsinghua University, our lecturer for Engineering and Scientific Computing Course. His course with large capacity provided us with many practical algorithms and deeper understanding about its usage, and the
 most importantly, pros and cons, which helped us to decide which algorithm to use in real situations.
+
+I also appreciate some bloggers from CSDN and Zhihu, their source code provided me with inspiration when I encountered difficulties.
