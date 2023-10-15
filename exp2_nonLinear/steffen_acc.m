@@ -25,9 +25,7 @@ while e>tol && steps<max_iter
         break;
     end
 end
-if ifconv
-    fprintf("Converged! Iteration: %d\n",steps);
-else
+if ~ifconv
     fprintf("Not converged !\n");
 end
 x=x0;
