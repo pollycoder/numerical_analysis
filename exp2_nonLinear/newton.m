@@ -14,6 +14,9 @@ sol=feval(obj_fun,x0);
 e=abs(sol);
 syms x
 y=obj_fun(x);
+if e<tol
+    ifconv=true;
+end
 while e>tol && steps<max_iter
     steps=steps+1;
     x0=double(x0-subs(y,x,x0)./subs(diff(y),x,x0));
